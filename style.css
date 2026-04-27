@@ -1,0 +1,105 @@
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color :white;
+}
+
+body {
+    background-color: black;
+    background-image: linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)), url('gif.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+p{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color :white;
+    font-weight: bold;
+}
+
+/* Profile card with rounded corners similar to the provided image */
+.profile-card {
+    max-width: 720px;
+    margin: 48px auto;
+    background: rgba(15,15,15,0.95);
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Circular canvas avatar */
+.avatar-canvas{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6) inset, 0 6px 20px rgba(0,0,0,0.6);
+    border: 3px solid rgba(255,255,255,0.06);
+    background: transparent;
+    overflow: hidden;
+}
+
+/* small responsive tweak */
+@media (max-width:420px){
+    .avatar-canvas{ width:96px; height:96px }
+    .profile-card{ padding:20px }
+}
+
+/* layout for two-card row */
+.cards-row{
+    display:flex;
+    align-items:stretch; /* stretch children to same height */
+    justify-content:center;
+    gap:28px;
+    max-width:1100px;
+    margin:48px auto;
+    padding:0 16px;
+}
+
+.image-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    flex: 0 0 33%; /* occupy one third of the row */
+    min-width:220px;
+    height:100%;
+}
+
+.left-canvas{
+    width:100%;
+    height:100%; /* fill the image-card height to match profile card */
+    border-radius: 12px; /* rounded rectangle */
+    display:block;
+    background: rgba(255,255,255,0.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    border: 3px solid rgba(255,255,255,0.06);
+    overflow:hidden;
+}
+
+/* make profile-card take the remaining two-thirds inside the row */
+.cards-row .profile-card{
+    margin:0; /* remove auto centering when inside the row */
+    flex: 1 1 66%;
+}
+
+.image-desc{
+    color: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+    text-align:center;
+    font-size:0.95rem;
+    margin:0;
+}
+
+@media (max-width:720px){
+    .cards-row{ flex-direction:column }
+    .image-card{ width:100% }
+}
